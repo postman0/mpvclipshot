@@ -119,7 +119,7 @@ void convert_to_png(int64_t w, int64_t h, int64_t stride, const uint8_t *mpv_dat
 
     png_set_bgr(png_ptr);
     png_set_rows(png_ptr, info_ptr, row_pointers);
-    png_write_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_ALPHA, NULL);
+    png_write_png(png_ptr, info_ptr, PNG_TRANSFORM_STRIP_ALPHA | PNG_TRANSFORM_INVERT_ALPHA, NULL);
     png_destroy_write_struct(&png_ptr, &info_ptr);
     free(row_pointers);
 }
